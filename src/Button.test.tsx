@@ -8,7 +8,7 @@ afterEach(cleanup);
 test('can render default default button', () => {
     const label = 'Hello World!';
     const tempFunc = () => ('');
-    const { getByText } = render(<Button cLabel={label} onClick={tempFunc} />);
+    const { getByText } = render(<Button label={label} onClick={tempFunc} />);
     const elem = getByText(label);
     expect(elem.innerHTML).toBe(label);
   });

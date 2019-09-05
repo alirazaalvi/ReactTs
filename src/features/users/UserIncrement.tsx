@@ -23,7 +23,7 @@ export default class UserIncrement extends React.Component<CProps, CState> {
       <p><label>{label}: {counter}</label></p>
       <Button
         onClick={this.handleIncrement}
-        cLabel="Increment"
+        label="Increment"
       />
     </div>);
   }

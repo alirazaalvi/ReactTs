@@ -1,24 +1,24 @@
 import * as React from 'react';
 
 interface CProps {
-  cLabel: string;
-  cStyle?: React.CSSProperties;
-  cClassName?: string;
+  label: string;
+  style?: React.CSSProperties;
+  className?: string;
   onClick(): void;
 }
 
 const Button = (props: CProps) => {
   const {
     onClick,
-    cStyle,
-    cLabel,
-    cClassName = 'button'} = props;
+    style,
+    label,
+    className = 'button'} = props;
   return (<button
     onClick={onClick}
-    className={cClassName}
-    style={cStyle}
+    className={className}
+    style={style}
   >
-    {cLabel}
+    {label}
   </button>);
 };
 

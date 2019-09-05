@@ -6,20 +6,20 @@ import Button from './Button';
 storiesOf('Button', module)
   .add('primary', () => (
     <Button
-      cLabel="Hello World!"
-      cClassName="button"
+      label="Hello World!"
+      className="button"
       onClick={action('onClick')}
     />
   )).add('with outline', () => (
     <Button
-      cLabel="Hello World!"
-      cClassName="button button-outline"
+      label="Hello World!"
+      className="button button-outline"
       onClick={action('onClick')}
     />
   )).add('clear', () => (
     <Button
-      cLabel="Hello World!"
-      cClassName="button button-clear"
+      label="Hello World!"
+      className="button button-clear"
       onClick={action('onClick')}
     />
   ));
