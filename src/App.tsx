@@ -1,6 +1,7 @@
 import * as React from 'react';
 import UserIncrement from './features/users/UserIncrement';
 import './App.css';
+import 'milligram/dist/milligram.css';
 
 function App() {
   return (
