@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         Boilerplate
       </header>
-      <UserIncrement  />
+      <UserIncrement  label="Counter" />
     </div>
   );
 }

@@ -1,10 +1,9 @@
-import { createStore } from 'redux';
-//import reduxThunk from 'redux-thunk';
-import reducer from './reducers';
+import { rootReducer } from './configureStore';
+import * as User from './features/users/reducer';
 
-const Store = createStore(
-  reducer,
-  //applyMiddleware(reduxThunk),
-);
 
-export default Store;
+export type AppState = ReturnType<typeof rootReducer>;
+
+export const reducers = {
+  userReducer: User.reducer,
+};

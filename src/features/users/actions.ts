@@ -1,4 +1,4 @@
-import { Counter } from './../types';
+import { Counter } from './types';
 // src/store/chat/types.ts
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'

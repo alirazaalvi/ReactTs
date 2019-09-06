@@ -3,43 +3,24 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import Button from '../../Button';
 //import { Counter } from '../../types';
-import { AppState } from '../../reducers/index';
-import { CounterActionTypes, increment } from '../../actions/counter';
+import { AppState } from '../../store';
+import { CounterActionTypes, increment } from './actions';
 import { Dispatch } from 'redux';
 export interface DispatchProp {
   dispatch: Dispatch<CounterActionTypes>;
 }
 
-interface CState {
-  label: string;
+interface ConnectedState {
   count: number;
 }
-// interface OwnProps {
-//   label: string;
-// }
 
-// interface CProps {
-//   //label: string;
-// }
-
-// interface AppProps {
-//   counter: Counter;
-// }
-
-// interface OwnProps {
-//   label: string;
-//   count: number;
-// }
-
-interface ComponentProps extends CState, DispatchProp {};
+interface OwnProps {
+  label: string;
+}
+interface ComponentProps extends ConnectedState, OwnProps, DispatchProp {};
 
 class UserIncrement extends React.Component<ComponentProps> {
-  // public readonly state: CState = {
-  //   counter: 0,
-  // }
-
   public render(): JSX.Element {
-    //const { counter } = this.state;
     const { label, count } = this.props;
     return (
     <div>
@@ -53,54 +34,14 @@ class UserIncrement extends React.Component<ComponentProps> {
 
   private readonly handleIncrement = (): void => {
     this.props.dispatch(increment());
-    // this.setState({
-    //   counter: this.s + 1,
-    // })
   }
 }
 
 
-function mapStateToProps(state: AppState): CState  {
+function mapStateToProps(state: AppState): ConnectedState  {
   return {
-    count: state.counterReducer.counter.count,
-    label: 'Counter',
+    count: state.userReducer.counter.count,
   };
 }
 
-export default connect(mapStateToProps)(UserIncrement) as React.ComponentClass;
-
-
-// import * as React from 'react';
-
-// export interface StatefulCounterProps {
-//   label: string;
-// }
-
-// interface State {
-//   readonly count: number;
-// }
-
-// export class StatefulCounter extends React.Component<StatefulCounterProps, State> {
-//   readonly state: State = {
-//     count: 0,
-//   };
-
-//   handleIncrement = () => {
-//     this.setState({ count: this.state.count + 1 });
-//   }
-
-//   render() {
-//     const { handleIncrement } = this;
-//     const { label } = this.props;
-//     const { count } = this.state;
-
-//     return (
-//       <div>
-//         <span>{label}: {count} </span>
-//         <button type="button" onClick={handleIncrement}>
-//           {`Increment`}
-//         </button>
-//       </div>
-//     );
-//   }
-// }
+export default connect(mapStateToProps)(UserIncrement) as React.ComponentClass<OwnProps>;
