@@ -1,5 +1,5 @@
 import produce from 'immer';
-import {CounterActionTypes,  INCREMENT} from './actions';
+import {CounterActionTypes,  INCREMENT, DECREMENT} from './actions';
 import { Counter } from './types';
 
 export interface UserState {
@@ -15,10 +15,15 @@ export const reducer = (
   action: CounterActionTypes
 ) => produce(state, (draft) => {
   let currentDraft = draft;
+  const currentCount = currentDraft.counter.count;
 
   switch(action.type) {
     case INCREMENT:  {
-      currentDraft.counter.count = currentDraft.counter.count + 1;
+      currentDraft.counter.count = currentCount + action.payload.count;
+      return;
+    }
+    case DECREMENT: {
+      currentDraft.counter.count = currentCount - action.payload.count;
       return;
     }
     default: {
@@ -26,6 +31,5 @@ export const reducer = (
     }
   }
 });
-
 
 export default reducer;

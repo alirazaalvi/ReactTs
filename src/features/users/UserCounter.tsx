@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from '../../Button';
 //import { Counter } from '../../types';
 import { AppState } from '../../store';
-import { CounterActionTypes, increment } from './actions';
+import { CounterActionTypes, increment, decrement } from './actions';
 import { Dispatch } from 'redux';
 export interface DispatchProp {
   dispatch: Dispatch<CounterActionTypes>;
@@ -24,17 +24,29 @@ class UserIncrement extends React.Component<ComponentProps> {
     const { label, count } = this.props;
     return (
     <div>
-      <p><label>{label}: {count}</label></p>
-      <Button
-        onClick={this.handleIncrement}
-        label="Increment"
-      />
+      <div className="row"><label>{label}: {count}</label></div>
+      <div className="row">
+        <Button
+          onClick={this.handleIncrement}
+          label="Increment"
+        />
+        &nbsp;&nbsp;
+        <Button
+          onClick={this.handleDecrement}
+          label="Decrement"
+        />
+      </div>
     </div>);
   }
 
   private readonly handleIncrement = (): void => {
-    this.props.dispatch(increment());
+    this.props.dispatch(increment(1));
   }
+
+  private readonly handleDecrement = (): void => {
+    this.props.dispatch(decrement(1));
+  }
+
 }
 
 

@@ -8,20 +8,24 @@ interface IncrementAction {
   payload: Counter;
 }
 
+interface DecrementAction {
+  type: typeof DECREMENT,
+  payload: Counter;
+}
 
-export function increment(): IncrementAction {
+
+export function increment(step: number): IncrementAction {
   return {
     type: INCREMENT,
-    payload: { count: 1 },
+    payload: { count: step },
   }
 }
 
-// interface DeleteMessageAction {
-//   type: typeof DELETE_MESSAGE
-//   meta: {
-//     timestamp: number
-//   }
-// }
+export function decrement(step: number): DecrementAction {
+  return {
+    type: DECREMENT,
+    payload: { count: step },
+  }
+}
 
-//export type ChatActionTypes = SendMessageAction | DeleteMessageAction
-export type CounterActionTypes = IncrementAction;
+export type CounterActionTypes = IncrementAction | DecrementAction;
