@@ -1,15 +1,15 @@
 import * as React from 'react';
 import UserIncrement from './features/users/UserCounter';
-import './App.css';
-import 'milligram/dist/milligram.css';
+import './App.sass';
+//import 'bulma/css/bulma.css';
 
 function App() {
   return (
     <div className="container">
       <div className="App">
-        <header className="App-header">
+        <h1 className="title has-text-centered">
           Boilerplate
-        </header>
+        </h1>
         <UserIncrement  label="Counter" />
       </div>
     </div>

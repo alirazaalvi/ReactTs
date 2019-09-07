@@ -7,19 +7,25 @@ storiesOf('Button', module)
   .add('primary', () => (
     <Button
       label="Hello World!"
+      className="button is-info"
+      onClick={action('clicked')}
+    />
+  )).add('info', () => (
+    <Button
+      label="Hello World!"
+      className="button is-success"
+      onClick={action('clicked')}
+    />
+  )).add('plain', () => (
+    <Button
+      label="Hello World!"
       className="button"
-      onClick={action('onClick')}
+      onClick={action('clicked')}
     />
-  )).add('with outline', () => (
+  )).add('danger', () => (
     <Button
       label="Hello World!"
-      className="button button-outline"
-      onClick={action('onClick')}
-    />
-  )).add('clear', () => (
-    <Button
-      label="Hello World!"
-      className="button button-clear"
-      onClick={action('onClick')}
+      className="button is-danger"
+      onClick={action('clicked')}
     />
   ));

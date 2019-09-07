@@ -24,17 +24,24 @@ class UserIncrement extends React.Component<ComponentProps> {
     const { label, count } = this.props;
     return (
     <div>
-      <div className="row"><label>{label}: {count}</label></div>
-      <div className="row">
-        <Button
-          onClick={this.handleIncrement}
-          label="Increment"
-        />
-        &nbsp;&nbsp;
-        <Button
-          onClick={this.handleDecrement}
-          label="Decrement"
-        />
+      <div className="columns">
+        <div className="column">
+          <label>{label}: {count}</label>
+        </div>
+      </div>
+      <div className="columns">
+        <div className="column is-1">
+          <Button className="button is-primary"
+            onClick={this.handleIncrement}
+            label="Increment"
+          />
+        </div>
+        <div className="column is-1">
+          <Button className="button is-light"
+            onClick={this.handleDecrement}
+            label="Decrement"
+          />
+        </div>
       </div>
     </div>);
   }
