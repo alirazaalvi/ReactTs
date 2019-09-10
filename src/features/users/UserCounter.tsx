@@ -1,7 +1,7 @@
 //import { Button } from 'antd';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import Button from '../../Button';
+import Button from '../../controls/Button';
 //import { Counter } from '../../types';
 import { AppState } from '../../store';
 import { CounterActionTypes, increment, decrement } from './actions';
@@ -26,18 +26,20 @@ class UserIncrement extends React.Component<ComponentProps> {
     <div>
       <div className="columns">
         <div className="column">
-          <label>{label}: {count}</label>
+          <label>{label}</label>: <span data-testid="count">{count}</span>
         </div>
       </div>
       <div className="columns">
         <div className="column is-1">
           <Button className="button is-primary"
+            data-testid="increment"
             onClick={this.handleIncrement}
             label="Increment"
           />
         </div>
         <div className="column is-1">
           <Button className="button is-light"
+            data-testid="decrement"
             onClick={this.handleDecrement}
             label="Decrement"
           />

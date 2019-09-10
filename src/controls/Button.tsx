@@ -17,6 +17,7 @@ const Button = (props: CProps) => {
     onClick={onClick}
     className={className}
     style={style}
+    {...props}
   >
     {label}
   </button>);
