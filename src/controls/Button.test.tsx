@@ -5,7 +5,7 @@ import Button from './Button';
 
 afterEach(cleanup);
 
-test('can render default default button', () => {
+test('can render default button', () => {
     const label = 'Hello World!';
     const tempFunc = () => ('');
     const { getByText } = render(<Button label={label} onClick={tempFunc} />);
