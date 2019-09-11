@@ -24,7 +24,7 @@ function App() {
             </div>
           </div>
         </div>
-        <UserIncrement  label="Counter" />
+        <UserIncrement label="Counter" />
       </div>
     </div>
   );
