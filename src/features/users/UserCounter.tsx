@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from '../../controls/Button';
-import { AppState } from '../../store';
-import { CounterActionTypes, increment, decrement } from './actions';
+import { AppState, ActionTypes } from '../../store';
+import { increment, decrement } from './actions';
 import { Dispatch } from 'redux';
 
 interface OwnProps {
@@ -13,7 +13,7 @@ interface ComponentProps extends OwnProps {};
 const UserIncrement = (props: ComponentProps) => {
   const { label } = props;
   const count = useSelector((state: AppState)  => state.userReducer.counter.count);
-  const dispatch: Dispatch<CounterActionTypes> = useDispatch();
+  const dispatch: Dispatch<ActionTypes> = useDispatch();
 
   return (
   <div>
