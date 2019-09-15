@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, cleanup, waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { renderWithRedux } from '../../testing/testingHelper';
+import { renderWithRedux } from '../../testUtils/testingHelper';
 import UserCounter from './UserCounter';
 
 afterEach(cleanup);
