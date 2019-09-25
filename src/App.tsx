@@ -1,5 +1,6 @@
 import * as React from 'react';
 import UserIncrement from './features/users/UserCounter';
+import TodoContainer from './features/todos/TodoContainer';
 import Input from './controls/Input';
 import './App.sass';
 //import 'bulma/css/bulma.css';
@@ -25,6 +26,7 @@ function App() {
           </div>
         </div>
         <UserIncrement label="Counter" />
+        <TodoContainer />
       </div>
     </div>
   );
