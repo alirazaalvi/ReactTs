@@ -3,13 +3,18 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import Input from './Input';
 
+const handleChange = () => {}
+const handleBlur = () => {}
+
 storiesOf('Input', module)
   .add('default', () => (
     <div className="columns">
       <div className="column is-4">
         <Input
           name="Hello"
-          placholder="Text goes here"
+          placeholder="Text goes here"
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
     </div>
@@ -21,7 +26,9 @@ storiesOf('Input', module)
         <div className="control">
           <Input
             name="Hello"
-            placholder="Text goes here"
+            placeholder="Text goes here"
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
       </div>
@@ -37,6 +44,8 @@ storiesOf('Input', module)
             name="Hello"
             value="user@user.com"
             className="input is-success"
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
         <p className="help is-success">This username is available</p>
@@ -53,6 +62,8 @@ storiesOf('Input', module)
             name="user"
             value="user@user.com"
             className="input is-danger"
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
         <p className="help is-danger">This username is not available</p>

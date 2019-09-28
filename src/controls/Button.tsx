@@ -4,7 +4,9 @@ interface CProps {
   label: string;
   style?: React.CSSProperties;
   className?: string;
-  onClick(): void;
+  type?: 'submit' | 'reset' | 'button';
+  disabled?: boolean;
+  onClick?(e: React.FormEvent<HTMLButtonElement>): void;
 }
 
 const Button = (props: CProps) => {
@@ -12,11 +14,15 @@ const Button = (props: CProps) => {
     onClick,
     style,
     label,
+    type = 'button',
+    disabled = false,
     className = 'button'} = props;
   return (<button
     onClick={onClick}
     className={className}
     style={style}
+    type={type}
+    disabled={disabled}
     {...props}
   >
     {label}

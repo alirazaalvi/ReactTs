@@ -7,7 +7,7 @@ import TodoContainer from './TodoContainer';
 afterEach(cleanup);
 
 test('can render todo item', () => {
-  const { queryByRole } = renderWithRedux(<TodoContainer />);
+  const { getByTestId } = renderWithRedux(<TodoContainer />);
 
-  expect(queryByRole('todo-container')).toBeInTheDocument();
+  expect(getByTestId('todo-container')).toBeInTheDocument();
 });

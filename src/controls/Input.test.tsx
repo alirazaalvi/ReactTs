@@ -13,6 +13,8 @@ test('can render input', () => {
       data-testid={testId}
       className="input"
       value="hello"
+      onChange={() => {}}
+      onBlur={() => {}}
     />
   );
   const elem = getByTestId(testId);

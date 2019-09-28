@@ -1,21 +1,26 @@
 import React from 'react';
 
 interface CProps {
+  id?: string;
   name: string;
   value?: string;
   style?: React.CSSProperties;
   type?: string;
-  placholder?: string;
+  placeholder?: string;
   className?: string;
+  onChange(e: React.ChangeEvent<any>): void;
+  onBlur(e: React.FocusEvent<any>): void;
 }
 
 const Input = (props: CProps) => {
   const {
     name,
-    placholder,
+    placeholder,
     value,
     type = 'input',
     className = 'input',
+    onChange,
+    onBlur,
   } = props;
 
   return (<input
@@ -23,8 +28,10 @@ const Input = (props: CProps) => {
       name={name}
       className={className}
       type={type}
-      placeholder={placholder}
+      placeholder={placeholder}
       value={value}
+      onChange={onChange}
+      onBlur={onBlur}
     />);
 }
 
