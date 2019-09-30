@@ -28,6 +28,7 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (
                 name="title"
                 type="text"
                 placeholder="Title"
+                data-testid="title-input"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
                 value={props.values.title}
@@ -39,13 +40,14 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (
           <Button
             label="Add"
             type="submit"
+            data-testid="submit-todo"
             className="button is-info"
             disabled={props.isSubmitting}
           />
         </div>
         <div className="column is-half">
           {props.touched.title && props.errors.title &&
-          <span className="has-text-danger">{props.errors.title}</span>}
+          <span data-testid="error-title" className="has-text-danger">{props.errors.title}</span>}
         </div>
       </div>
     </div>
@@ -60,11 +62,11 @@ const AddTodo = withFormik<FormProps, FormValues>({
       .required('Please input title'),
     },
   ),
-  handleSubmit: (values, bag) => {
+  handleSubmit: (values, { props, setSubmitting, resetForm } ) => {
     const todo: Todo = { name: values.title, lastModified: '01-01-2019' };
-    bag.props.handleAddTodo(todo);
-    bag.setSubmitting(false);
-    bag.resetForm();
+    props.handleAddTodo(todo);
+    setSubmitting(false);
+    resetForm();
   },
 })(InnerForm);
 

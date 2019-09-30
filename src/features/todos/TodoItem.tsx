@@ -8,7 +8,7 @@ interface CProps {
 const TodoItem = (props: CProps) => (
   <div className="card">
     <header className="card-header">
-      <p className="card-header-title">
+      <p className="card-header-title" data-testid="todo-title">
         {props.todo.name}
       </p>
     </header>

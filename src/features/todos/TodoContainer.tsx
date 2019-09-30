@@ -21,7 +21,7 @@ const TodoContainer = () => {
 
   return (
     <div data-testid="todo-container">
-      <AddTodo handleAddTodo={handleAddTodo}/>
+      <AddTodo handleAddTodo={handleAddTodo} />
       <br />
       <TodoList todos={todos} />
   </div>);
